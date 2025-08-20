@@ -1,0 +1,12 @@
+{
+  "name": "curso-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "aula01.js",
+  "scripts": {
+    "test": "npx http-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
