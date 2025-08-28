@@ -1,16 +1,20 @@
-// First Class functions
-// Higher Order functions
+// declaração explícita e arrow function
 
-
-//function declaration - sofre o hoisting
-function nomeDaFuncao() {
-    console.log('nomeDaFuncao');
+//cria um contexto novo e consegue isolar esse contexto
+function funcao1(){
+    console.log(this);
 }
 
-//function expression - não sofre o hoisting
-const nomeDeOutraFuncao = function () {
-    console.log('nomeDeOutraFuncao');
+//não cira um contexto, por isso o this não funciona
+const funcao2 = () => {
+    console.log(this);
 }
 
-nomeDaFuncao();
-nomeDeOutraFuncao();
+const samuel = {
+    nome: 'samuel',
+    funcao1,
+    funcao2
+}
+
+samuel.funcao1();
+samuel.funcao2();
