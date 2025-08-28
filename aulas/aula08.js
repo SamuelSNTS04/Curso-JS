@@ -1,20 +1,17 @@
-// formas de invocar uma função
+// callback
 
-const pessoa = {
-    nome: "samuel",
-    idade: 21
+function adicao(x, y) {
+    return x + y;
 }
 
-//invocação direta - o this será undefined porque ele não está no contexto do objeto
-function gritar(prefixo){
-    console.log(prefixo, this.nome);
+function multiplicacao(x, y) {
+    return x * y;
 }
 
 
-gritar();
+function calculadora(x, operacao, y) {
+    console.log(operacao(x, y))
+}
 
-//com apply conseguimos colocar a função dentro do contexto do objeto pessoa
-gritar.apply(pessoa, ['olaaaaaa']);
-
-//funciona da mesma forma que o apply, mas não recebe um array e sim quantos argumentos forem passados separados por virgulas
-gritar.call(pessoa, 'olaaaaaa');
+calculadora(10 , adicao, 20);
+calculadora(10 , multiplicacao, 20);
