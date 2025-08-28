@@ -1,10 +1,9 @@
-// reduce
+// join
 
-const lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const lista = [1, 2, 3];
 
-//percorre toda a lista e transforma ela em um único valor
-const somaDeTodosOsNumeros = lista.reduce((previous, current) => {
-    return previous + current;
-});
+const novaLista = lista.map((element) => {
+    return element;
+}).join("; ");
 
-console.log(somaDeTodosOsNumeros);
+console.log(novaLista);
