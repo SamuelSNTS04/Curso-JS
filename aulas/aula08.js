@@ -1,20 +1,14 @@
-// declaração explícita e arrow function
+// closures
 
-//cria um contexto novo e consegue isolar esse contexto
-function funcao1(){
-    console.log(this);
+//na invocação da função somaParcial ele guarda o valor de X mesmo não estando no escopo da segunda função
+function soma(x) {
+    return function (y) {
+        return x + y;
+    }
 }
 
-//não cira um contexto, por isso o this não funciona
-const funcao2 = () => {
-    console.log(this);
-}
+const somaParcial = soma(10);
 
-const samuel = {
-    nome: 'samuel',
-    funcao1,
-    funcao2
-}
-
-samuel.funcao1();
-samuel.funcao2();
+console.log(somaParcial(20));
+console.log(somaParcial(30));
+console.log(somaParcial(40));
