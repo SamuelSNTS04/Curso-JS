@@ -1,14 +1,20 @@
-// closures
+// formas de invocar uma função
 
-//na invocação da função somaParcial ele guarda o valor de X mesmo não estando no escopo da segunda função
-function soma(x) {
-    return function (y) {
-        return x + y;
-    }
+const pessoa = {
+    nome: "samuel",
+    idade: 21
 }
 
-const somaParcial = soma(10);
+//invocação direta - o this será undefined porque ele não está no contexto do objeto
+function gritar(prefixo){
+    console.log(prefixo, this.nome);
+}
 
-console.log(somaParcial(20));
-console.log(somaParcial(30));
-console.log(somaParcial(40));
+
+gritar();
+
+//com apply conseguimos colocar a função dentro do contexto do objeto pessoa
+gritar.apply(pessoa, ['olaaaaaa']);
+
+//funciona da mesma forma que o apply, mas não recebe um array e sim quantos argumentos forem passados separados por virgulas
+gritar.call(pessoa, 'olaaaaaa');
