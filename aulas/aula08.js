@@ -1,17 +1,14 @@
-// callback
+// foreach
 
-function adicao(x, y) {
-    return x + y;
-}
+const lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-function multiplicacao(x, y) {
-    return x * y;
-}
+/*
+lista.forEach((value, i, listRef) => {
+    console.log(value, i, listRef);
+});
+*/
 
+lista.forEach((value, i, listRef) => {
+    console.log(value + i);
+});
 
-function calculadora(x, operacao, y) {
-    console.log(operacao(x, y))
-}
-
-calculadora(10 , adicao, 20);
-calculadora(10 , multiplicacao, 20);
