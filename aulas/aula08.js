@@ -1,17 +1,10 @@
-// map
+// reduce
 
-class Pessoa{
-    constructor(name) {
-        this.name = name;
-    }
-}
+const lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const lista = [new Pessoa('samuel'), new Pessoa('tiago'), new Pessoa('bianca'), new Pessoa('ezequiel')];
-
-//conversão da lista pessoa, para a lista de nomes - conversão de um objeto para outro
-const listaNomes = lista.map((element) => {
-    return element.name;
+//percorre toda a lista e transforma ela em um único valor
+const somaDeTodosOsNumeros = lista.reduce((previous, current) => {
+    return previous + current;
 });
 
-console.log(listaNomes);
-
+console.log(somaDeTodosOsNumeros);
