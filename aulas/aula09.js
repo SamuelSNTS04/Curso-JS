@@ -1,16 +1,20 @@
 //assincronismo
 
-const promessaDeUmNumeroQualquer = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        const numero = parseInt(Math.random() * 100);
-        resolve(numero);
-    }, 1000);
-});
+const fs = require("fs");
 
-promessaDeUmNumeroQualquer.then((value) => {
-    console.log(value);
-}).catch((error) => {
-    console.error(error);
-}).finally(() => {
-    console.log("finalizou!");
-})
+const filePath = path.resolve(__dirname, 'tarefas.csv');
+
+const promessaDaLeituraDoArquivo = fs.promises.readFile("tarefas.csv");
+
+promessaDaLeituraDoArquivo
+    .then((arquivo) => arquivo.toString("utf-8"))
+    .then((textoDoArquivo) => textoDoArquivo.split('\n').slice(1))
+    .then((linhasSemCabecalho) => linhasSemCabecalho.map((linha) => {
+        const [nome, feito] = linha.split(';');
+        return {
+            nome,
+            feito: feito.trim() === "true"
+        }
+    }))
+    .then((listaDasTarefas) => console.log(listaDasTarefas))
+    .catch((error) => console.log("deu ruim", error))
